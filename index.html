@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>verifica mast</title>
+</head>
+<body>
+
+    <form>
+        <div class="slide">
+            <label form="dim">DIMENSIONE</label>
+            <input type="range" name="lato" />
+        </div>
+    </form>
+   	<script src="p5/p5.min.js"></script>
+
+ <script type="text/javascript">
+ 	
+
+let lato = 40
+let d = 20
+let x = 0
+let y = 0
+
+function pulisci() {
+    background("green")
+    x=0
+    y=0
+}
+
+function setup() {
+    createCanvas(400,400)
+    background("green")
+}
+
+function draw() {
+    
+    let r = random()
+
+    if (r>0.5) {
+        
+        fill("white")
+        square(x, y, lato)
+        fill("black")
+        circle(x+lato/2, y+lato/2, d)
+    } 
+    else 
+    {
+        fill("black")
+        square(x, y, lato)
+
+        fill("white")
+        circle(x+lato/2, y+lato/2, d)
+    }
+    x=x+lato
+
+    if (x>=400) {
+        x=0
+        y=y+lato
+    }
+}
+
+
+let latoInput = document.querySelector("[name = lato]")
+latoInput.addEventListener("input" , function (e){
+    pulisci()
+})
+  
+
+ </script>
+</body>
+</html>
